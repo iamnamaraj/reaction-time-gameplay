@@ -1,16 +1,17 @@
 <template>
-  <h2>Test your reaction timing</h2>
+  <h2>Reaction Timer</h2>
   <button @click="start" :disabled="isplayng">play</button>
   <Block v-if="isplayng" :delay="delay" @end="endGame"/>
-  <p v-if="showResult">Reaction time: {{ score }}ms</p>
+  <Results v-if="showResult" :score="score"/>
 
 </template>
 
 <script>
 import Block  from "./components/Block.vue";
+import Results from './components/Results.vue';
 export default {
   name: 'App',
-  components: { Block },
+  components: { Block, Results },
   data() {
     return {
       isplayng:false,
